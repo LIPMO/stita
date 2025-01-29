@@ -6,9 +6,10 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Dashboard Trottinette</h1>
+    <h1>Dashboard Moto/Trottinette</h1>
     <p><strong>Vitesse :</strong> {{ vitesse }} km/h</p>
-    <p><strong>Inclinaison :</strong> {{ inclinaison }}°</p>
+    <p><strong>Latitude :</strong> {{ latitude }}</p>
+    <p><strong>Longitude :</strong> {{ longitude }}</p>
     
     <canvas id="myChart" width="400" height="200"></canvas>
     <script>
@@ -16,16 +17,11 @@
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['Vitesse', 'Inclinaison'],
+                labels: ['Vitesse'],
                 datasets: [{
                     label: 'Vitesse (km/h)',
                     data: [{{ vitesse }}],
                     borderColor: 'rgb(75, 192, 192)',
-                    fill: false
-                }, {
-                    label: 'Inclinaison (°)',
-                    data: [{{ inclinaison }}],
-                    borderColor: 'rgb(255, 99, 132)',
                     fill: false
                 }]
             }
